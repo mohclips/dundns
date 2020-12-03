@@ -1,0 +1,31 @@
+version: '2.4'
+
+services:
+
+  duckdns:
+    build: .
+    image: alpine:latest
+    #build: .
+    tty: true
+    container_name: duckdns
+    # restart always = if unhealthy re-start the container
+    restart: always
+ 
+    volumes:
+      - ./run.sh:/tmp/run.sh:ro
+
+    command: /tmp/run.sh
+
+    # # check health here:   docker inspect --format='{{json .State.Health}}' rtl433_weewx | jq .
+    # healthcheck:
+    #   test:
+    #     [
+    #       "CMD-SHELL",
+    #       "/usr/local/bin/healthcheck.sh",
+    #     ]
+    #   interval: 60s
+    #   timeout: 10s
+    #   retries: 3
+    #   # delay long enough for weewx to gather an update and send to WU 
+    #   start_period: 3m
+

@@ -13,6 +13,7 @@ services:
  
     volumes:
       - ./run.sh:/tmp/run.sh:ro
+      - ./CREDS:/tmp/CREDS:ro
 
     command: /tmp/run.sh
 

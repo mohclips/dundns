@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. ./CREDS
+. /tmp/CREDS
 
 SLEEP=300
 
